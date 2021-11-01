@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14.35" height="18.172" viewBox="0 0 14.35 18.172">
+  <g id="icon_장바구니" transform="translate(-1744.41 -330.568)">
+    <g id="가방">
+      <g id="Rectangle_564" data-name="Rectangle 564" transform="translate(1744.41 335.13)" fill="rgba(245,245,245,0)" stroke="#fff" stroke-width="1">
+        <rect width="14.35" height="13.61" stroke="none"/>
+        <rect x="0.5" y="0.5" width="13.35" height="12.61" fill="none"/>
+      </g>
+      <path id="Rectangle_564_copy" data-name="Rectangle 564 copy" d="M1747.48,335.524a4.118,4.118,0,1,1,8.207,0" fill="rgba(245,245,245,0)" stroke="#fff" stroke-width="1"/>
+    </g>
+    <text id="_2" data-name="2" transform="translate(1751.648 345.375)" fill="#fff" font-size="10" font-family="FuturaStd-Light, Futura Std" font-weight="300" letter-spacing="-0.05em"><tspan x="-3.1" y="0">2</tspan></text>
+  </g>
+</svg>
