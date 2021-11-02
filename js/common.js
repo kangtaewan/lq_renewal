@@ -9,7 +9,7 @@ var headerElem = document.querySelector('.header');
 var windowElem = document.querySelector('window');
 var gnbBodyElem = document.querySelector('.gnb-body__link');
 
-function menuActive() {
+function menuActive(e) {
   if (depth1.classList.contains('is-active')) {
     gnbElem.classList.remove('is-active');
     dimElem.classList.remove('is-active');
@@ -30,7 +30,10 @@ function menuActive() {
   }
 }
 
-menuBtn.addEventListener('click', menuActive);
+menuBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  menuActive();
+});
 $('.gnb-body__link').off('click').on('click', function (e) {
   e.preventDefault();
   var dataPage = $(this).attr('data-page'); //3depth open/close
@@ -58,15 +61,12 @@ $('.gnb-body__link').off('click').on('click', function (e) {
 $('.js-search-open').off('click').on('click', function (e) {
   e.preventDefault();
   $('.search').addClass('is-active');
+  scrollStop();
 });
 $('.js-search-close').off('click').on('click', function (e) {
   e.preventDefault();
   $('.search').removeClass('is-active');
-});
-$('.js-gnb-back').off('click').on('click', function (e) {
-  e.preventDefault();
-  $('.gnb.type-2depth, .dim').removeClass('is-active');
-  $('.gnb-body__item, .gnb-3depth').removeClass('is-active');
+  scrollStart();
 });
 var footerH = $('.footer').outerHeight();
 console.log(footerH);
@@ -92,4 +92,30 @@ document.addEventListener('scroll', function () {
   }
 
   beforePosition = afterPosition;
-});
+}); //아코디언메뉴
+
+var accordionElemAll = document.querySelectorAll('.js-accordion');
+Array.prototype.forEach.call(accordionElemAll, function (accordionElem) {
+  accordionElem.addEventListener('click', function (e) {
+    e.preventDefault();
+    var parent = this.parentNode;
+    var accordionList = parent.querySelector('ul');
+
+    if (this.classList.contains('is-active')) {
+      //닫기
+      accordionList.classList.remove('is-hide');
+      this.classList.remove('is-active');
+    } else {
+      //열기
+      accordionList.classList.add('is-hide');
+      this.classList.add('is-active');
+    }
+  });
+}); //전체선택
+
+function selectAll(selectAll, name) {
+  var checkboxes = document.querySelectorAll("input[name=\"".concat(name, "\"]"));
+  checkboxes.forEach(function (checkbox) {
+    checkbox.checked = selectAll.checked;
+  });
+}
